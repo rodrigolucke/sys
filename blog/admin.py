@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+
 # Register your models here.
 from blog.models.Aluno import Aluno
 from blog.models.Empresa import Empresa
