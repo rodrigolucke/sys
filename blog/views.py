@@ -28,9 +28,15 @@ def loginUser(request):
 
 @login_required(login_url='/login/')
 @csrf_protect
-def index(request):
+def index2(request):
     pet = ""#Aluno.filter(active=True)
     return render(request, 'views/html/dados2.html', {'pet':pet})
+
+@login_required(login_url='/login/')
+@csrf_protect
+def index(request):
+    pet = ""#Aluno.filter(active=True)
+    return render(request, 'views/html/index.html', {'pet':pet})
 
 @login_required(login_url='/login/')
 def logoutUser(request):

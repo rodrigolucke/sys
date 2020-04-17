@@ -55,14 +55,13 @@
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="../static/views/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img style="width:60px;" src="../static/img/logo2.jpg" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <img src="../static/views/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
                          <!-- dark Logo text -->
-                         <img src="../static/views/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                          <!-- Light Logo text -->
                          <img src="../static/views/assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
                 </div>
@@ -107,7 +106,7 @@
         <!-- ============================================================== -->
         <aside class="left-sidebar">
             <div class="d-flex no-block nav-text-box align-items-center">
-                <span><img src="../static/views/assets/images/logo-icon.png" alt="elegant admin template"></span>
+                <span><img style="width:60px;" src="../static/img/logo2.jpg" alt="elegant admin template"></span>
                 <a class="waves-effect waves-dark ml-auto hidden-sm-down" href="javascript:void(0)"><i class="ti-menu"></i></a>
                 <a class="nav-toggler waves-effect waves-dark ml-auto hidden-sm-up" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
             </div>
@@ -116,8 +115,8 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a></li>
-                        <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Profile</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Passagens Alunos</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="/admin/blog/aluno/" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Alunos</span></a></li>
                         <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu"></span>Tables</a></li>
                         <li> <a class="waves-effect waves-dark" href="icon-fontawesome.html" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu"></span>Icon</a></li>
                         <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu"></span>Map</a></li>
@@ -148,13 +147,13 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Dashboard</h4>
+                        <h4 class="text-themecolor">Passagens Alunos</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item active">Passagens Alunos</li>
                             </ol>
                             <a class="btn btn-success d-none d-lg-block m-l-15" href="https://wrappixel.com/templates/elegant-admin/"> Upgrade To Pro</a>
                         </div>
@@ -166,83 +165,7 @@
                 <!-- ============================================================== -->
                 <!-- Yearly Sales -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="card oh">
-                            <div class="card-body">
-                                <div class="d-flex m-b-30 align-items-center no-block">
-                                    <h5 class="card-title ">Yearly Sales</h5>
-                                    <div class="ml-auto">
-                                        <ul class="list-inline font-12">
-                                            <li><i class="fa fa-circle text-info"></i> Iphone</li>
-                                            <li><i class="fa fa-circle text-primary"></i> Ipad</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div id="morris-area-chart" style="height: 350px;"></div>
-                            </div>
-                            <div class="card-body bg-light">
-                                <div class="row text-center m-b-20">
-                                    <div class="col-lg-4 col-md-4 m-t-20">
-                                        <h2 class="m-b-0 font-light">6000</h2><span class="text-muted">Total sale</span>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 m-t-20">
-                                        <h2 class="m-b-0 font-light">4000</h2><span class="text-muted">Iphone</span>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 m-t-20">
-                                        <h2 class="m-b-0 font-light">2000</h2><span class="text-muted">Ipad</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Today's Schedule</h5>
-                                <h6 class="card-subtitle">check out your daily schedule</h6>
-                                <div class="steamline m-t-40">
-                                    <div class="sl-item">
-                                        <div class="sl-left bg-success"> <i class="fa fa-user"></i></div>
-                                        <div class="sl-right">
-                                            <div class="font-medium">Meeting today <span class="sl-date"> 5pm</span></div>
-                                            <div class="desc">you can write anything </div>
-                                        </div>
-                                    </div>
-                                    <div class="sl-item">
-                                        <div class="sl-left bg-info"><i class="fa fa-image"></i></div>
-                                        <div class="sl-right">
-                                            <div class="font-medium">Send documents to Clark</div>
-                                            <div class="desc">Lorem Ipsum is simply </div>
-                                        </div>
-                                    </div>
-                                    <div class="sl-item">
-                                        <div class="sl-left"> <img class="img-circle" alt="user" src="../static/views/assets/images/users/1.jpg"> </div>
-                                        <div class="sl-right">
-                                            <div class="font-medium">John Doe <span class="sl-date"> 5pm</span></div>
-                                            <div class="desc">Call today with gohn doe </div>
-                                        </div>
-                                    </div>
-                                    <div class="sl-item">
-                                        <div class="sl-left"> <img class="img-circle" alt="user" src="../static/views/assets/images/users/2.jpg"> </div>
-                                        <div class="sl-right">
-                                            <div class="font-medium">Go to the Doctor <span class="sl-date">5 minutes ago</span></div>
-                                            <div class="desc">Contrary to popular belief</div>
-                                        </div>
-                                    </div>
-                                    <div class="sl-item">
-                                        <div class="sl-left"> <img class="img-circle" alt="user" src="../static/views/assets/images/users/3.jpg"> </div>
-                                        <div class="sl-right">
-                                            <div><a href="#">Tiger Sroff</a> <span class="sl-date">5 minutes ago</span></div>
-                                            <div class="desc">Approve meeting with tiger
-                                                <br><a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Apporve</a> <a href="javascript:void(0)" class="btn m-t-10 btn-rounded btn-outline-danger">Refuse</a> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- ============================================================== -->
                 <!-- News -->
                 <!-- ============================================================== -->
@@ -340,80 +263,6 @@
                 <!-- ============================================================== -->
                 <!-- To do chat and message -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Feeds</h4>
-                            </div>
-                            <ul class="feeds p-b-20">
-                                <li>
-                                    <div class="bg-info"><i class="fa fa-bell-o"></i></div> You have 4 pending tasks. <span class="text-muted">Just Now</span></li>
-                                <li>
-                                    <div class="bg-success"><i class="ti-server"></i></div> Server #1 overloaded.<span class="text-muted">2 Hours ago</span></li>
-                                <li>
-                                    <div class="bg-warning"><i class="ti-shopping-cart"></i></div> New order received.<span class="text-muted">31 May</span></li>
-                                <li>
-                                    <div class="bg-danger"><i class="ti-user"></i></div> New user registered.<span class="text-muted">30 May</span></li>
-                                <li>
-                                    <div class="bg-dark"><i class="fa fa-bell-o"></i></div> New Version just arrived. <span class="text-muted">27 May</span></li>
-                                <li>
-                                    <div class="bg-info"><i class="fa fa-bell-o"></i></div> You have 4 pending tasks. <span class="text-muted">Just Now</span></li>
-                                <li>
-                                    <div class="bg-danger"><i class="ti-user"></i></div> New user registered.<span class="text-muted">30 May</span></li>
-                                <li>
-                                    <div class="bg-dark"><i class="fa fa-bell-o"></i></div> New Version just arrived. <span class="text-muted">27 May</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Messages (5 New)</h5>
-                                <div class="message-box">
-                                    <div class="message-widget message-scroll">
-                                        <!-- Message -->
-                                        <a href="javascript:void(0)">
-                                            <div class="user-img"> <img src="../static/views/assets/images/users/1.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
-                                            <div class="mail-contnet">
-                                                <h5>Pavan kumar</h5> <span class="mail-desc">Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been.</span> <span class="time">9:30 AM</span> </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="javascript:void(0)">
-                                            <div class="user-img"> <img src="../static/views/assets/images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
-                                            <div class="mail-contnet">
-                                                <h5>Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span> </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="javascript:void(0)">
-                                            <div class="user-img"> <span class="round">A</span> <span class="profile-status away pull-right"></span> </div>
-                                            <div class="mail-contnet">
-                                                <h5>Arijit Sinh</h5> <span class="mail-desc">Simply dummy text of the printing and typesetting industry.</span> <span class="time">9:08 AM</span> </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="javascript:void(0)">
-                                            <div class="user-img"> <img src="../static/views/assets/images/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
-                                            <div class="mail-contnet">
-                                                <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="javascript:void(0)">
-                                            <div class="user-img"> <img src="../static/views/assets/images/users/1.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
-                                            <div class="mail-contnet">
-                                                <h5>Pavan kumar</h5> <span class="mail-desc">Welcome to the Elite Admin</span> <span class="time">9:30 AM</span> </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="javascript:void(0)">
-                                            <div class="user-img"> <img src="../static/views/assets/images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
-                                            <div class="mail-contnet">
-                                                <h5>Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span> </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->

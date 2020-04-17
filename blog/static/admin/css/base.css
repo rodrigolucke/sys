@@ -644,7 +644,7 @@ div.system-message p.system-message-title {
 /* BREADCRUMBS */
 
 div.breadcrumbs {
-    background: #79aec8;
+    background: #29292b;
     padding: 10px 40px;
     border: none;
     font-size: 14px;
@@ -856,7 +856,7 @@ table#change-history tbody th {
 }
 
 #branding h1, #branding h1 a:link, #branding h1 a:visited {
-    color: #f5dd5d;
+    color: white;
 }
 
 #branding h2 {
