@@ -23,7 +23,8 @@ urlpatterns = [
     #path('', include('blog.urls')),
     path('login/', views.loginNoAdmin),
     path('login/loginUser', views.loginUser),
-    path('index/', views.index2),
-    path('index2/', views.index),
+    path('index/', views.index3),
+    path('index2/', views.index, name="index"),
+    path('index3/', views.index2, name="index3"),
     path('logout/', views.logoutUser),
 ]
