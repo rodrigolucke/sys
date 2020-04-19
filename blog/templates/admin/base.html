@@ -60,9 +60,9 @@
     {% block breadcrumbs %}
     <div class="breadcrumbs">
      {% if request.user.is_superuser %}
-        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+        <a href="{% url 'index' %}">{% trans 'Home' %}</a>
      {% else %}
-        <a href="{% url 'index2' %}">{% trans 'Home' %}</a>
+        <a href="{% url 'index3' %}">{% trans 'Home' %}</a>
      {% endif %}
     {% if title %} &rsaquo; {{ title }}{% endif %}
     </div>

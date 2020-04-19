@@ -1,5 +1,5 @@
 from django.db.models import Manager
-from .models import Periodo, UsuarioEscola, Empresa, Escola, Aluno
+from .models import Periodo, UsuarioEscola, Empresa, Escola, Aluno, AlunoTrajeto
 from pprint import pprint
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
@@ -63,9 +63,69 @@ def index3(request):
 @login_required(login_url='/login/')
 @csrf_protect
 def index(request):
-    p = Periodo.objects.all()
+    periodos = Periodo.objects.all()
+    empresas = Empresa.objects.all()
+    escolaSelecionada = UsuarioEscola.objects.get(codigo_usuario=request.user.id).cod_escola
+    listaAlunos = Aluno.objects.filter(
+        escola_codigo=UsuarioEscola.objects.get(codigo_usuario=request.user.id).cod_escola)
+    pprint(escolaSelecionada)
+    return render(request, 'views/html/index3.html', {
+        'periodos': periodos,
+        'empresas': empresas,
+        'escolaSelecionada': escolaSelecionada,
+        'listaAlunos': listaAlunos,
+    })
 
-    return render(request, 'views/html/index.html', {'periodos':p})
+@login_required(login_url='/login/')
+@csrf_protect
+def index(request):
+    periodos = Periodo.objects.all()
+    empresas = Empresa.objects.all()
+    escolaSelecionada = UsuarioEscola.objects.get(codigo_usuario=request.user.id).cod_escola
+    listaAlunos = Aluno.objects.filter(
+        escola_codigo=UsuarioEscola.objects.get(codigo_usuario=request.user.id).cod_escola)
+    pprint(escolaSelecionada)
+    return render(request, 'views/html/index3.html', {
+        'periodos': periodos,
+        'empresas': empresas,
+        'escolaSelecionada': escolaSelecionada,
+        'listaAlunos': listaAlunos,
+    })
+
+@login_required(login_url='/login/')
+@csrf_protect
+def savePassagens(request):
+    alunoTrajeto = AlunoTrajeto()
+    return render(request, 'views/html/teste.html', {
+        'request':  request.POST,
+
+    })
+    city = request.POST.get('city')
+    email = request.POST.get('email')
+    phone = request.POST.get('phone')
+    description = request.POST.get('description')
+    file = request.FILES.get('file')
+    user = request.user
+    pet_id = request.POST.get('pet_id')
+    if pet_id:
+        pet = Pet.objects.get(id=pet_id)
+        if user == pet.user:
+            pet.email = email
+            pet.phone = phone
+            pet.city = city
+            pet.description = description
+            if file:
+                pet.photo = file
+            pet.save()
+    else:
+        pet = AlunoTrajeto.objects.create(email=email, phone=phone, city=city, description=description,
+                                 user=user, photo=file)
+    url = '/pet/detail/{}/'.format(pet.id)
+    return redirect(url)
+
+@login_required(login_url='/login/')
+def teste(request):
+    return render(request, 'views/html/teste.html')
 
 @login_required(login_url='/login/')
 def logoutUser(request):

@@ -29,7 +29,7 @@
 {% block breadcrumbs %}
 <div class="breadcrumbs">
      {% if not request.user.is_superuser %}
-        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+        <a href="{% url 'index' %}">{% trans 'Home' %}</a>
      {% else %}
         <a href="{% url 'index' %}">{% trans 'Home' %}</a>
      {% endif %}

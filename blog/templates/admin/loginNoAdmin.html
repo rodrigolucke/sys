@@ -9,6 +9,7 @@
     <meta name="robots" content="NONE,NOARCHIVE">
 
     <body class=" login"
+    <body class=" login
           data-admin-utc-offset="-10800">
         <!-- Container -->
         <div id="container">
@@ -33,11 +34,10 @@
                     <label class="required" for="id_password">Senha:</label> <input type="password" name="password" required id="id_password">
                     <input type="hidden" name="next" value="/login/loginUser">
                   </div>
-                     {% if messages %}
+                          {% if messages %}
                               {% for message in messages %}
                                   <div style="color:red;"  class="alert alert-danger">{{ message }}</div>
                               {% endfor %}
-
                           {% endif %}
                   <div class="submit-row">
                     <label>&nbsp;</label><input type="submit" value="Acessar">
