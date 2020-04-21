@@ -24,9 +24,6 @@ urlpatterns = [
     path('login/', views.loginNoAdmin),
     path('login/loginUser', views.loginUser),
     path('savePassagens/', views.savePassagens),
-    path('index/', views.index3),
-    path('teste/', views.teste),
-    path('index2/', views.index, name="index"),
-    path('index3/', views.index2, name="index3"),
+    path('index/', views.index, name="index"),
     path('logout/', views.logoutUser),
 ]

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>SIGETESC</title>
 
     <!-- Custom fonts for this template-->
     <link href="../static/vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
@@ -32,7 +32,7 @@
                     <i class="fas fa-bus-alt"></i>
                     <!--  <img style="width:60px;" src="../static/img/logo2.jpg" alt="homepage" class="dark-logo" />-->
                 </div>
-                <div class="sidebar-brand-text mx-3">SIGETESC</sup>
+                <div class="sidebar-brand-text mx-3">SIGETESC
                 </div>
             </a>
 
@@ -60,6 +60,14 @@
                     <span>Alunos</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/blog/alunotrajeto/">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Trajetos Alunos</span>
+                </a>
+            </li>
+
             {% if request.user.is_superuser %}
             <hr class="sidebar-divider">
             <!-- Heading -->
@@ -172,7 +180,11 @@
                     <ul class="navbar-nav ml-auto container-fluid">
 
                         <li class=" text-center col-10">
-                            <h1>{{escolaSelecionada}}</h1>
+                            {% if escolaSelecionada %}
+                                <h1>{{escolaSelecionada}}</h1>
+                            {% else %}
+                                <h1>Sem Escola Cadastrada/Selecionada</h1>
+                            {% endif %}
                         </li>
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow col-2">
@@ -215,7 +227,7 @@
                         <!-- ============================================================== -->
                         <!-- News -->
                         <!-- ============================================================== -->
-                        <form action="savePassagens" method="post" id="passagens-form">{% csrf_token %}
+                      <form action="/savePassagens/" method="post">{% csrf_token %}
                             <div class="row">
                                 <!-- column -->
                                 <div class="col-12">
@@ -238,12 +250,12 @@
                                                 </div>
                                                 <div class="ml-auto">
                                                     <div class="dropdown">
-                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <option class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             Selecione o periodo
-                                                        </button>
+                                                        </option>
                                                          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                                              {% for periodo in periodos %}
-                                                                 <button name="periodo" class="dropdown-item" type="button">{{ periodo }}</button>
+                                                                 <option name="periodo"  href="/index?periodo='{{ periodo.codigo }}'"> class="dropdown-item" type="button">{{ periodo }}</option>
                                                              {% endfor %}
                                                         </div>
                                                     </div>
@@ -271,9 +283,14 @@
                                                                 <td class="txt-oflo">{{aluno.turno_codigo}}</td>
                                                                 <td class="txt-oflo">{{aluno.trajeto_codigo.distancia}}</td>
                                                                 <td class="txt-oflo">{{aluno.trajeto_codigo}}</td>
-                                                                <td> <input class="form-control" name="numPassagens" placeholder="0"></td>
+                                                                <input class="form-control" name="aluno_codigo" value="{{aluno.matricula}}" type="hidden">
+                                                                <input class="form-control" name="aluno_trajeto" value="{{aluno.trajeto_codigo.codigo}}" type="hidden">
+
+                                                                <td> <input class="form-control" name="num_passagens" placeholder="0"></td>
                                                             </tr>
                                                          {% endfor %}
+                                                        <input class="form-control" name="datames" value="1" type="hidden">
+                                                        <input class="form-control" name="empresa" value="1" type="hidden">
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -281,15 +298,21 @@
                                 </div>
                             </div>
                             <div class="text-center m-t-30">
-                                <a style="width:20%;text-align:center;margin-left:80%;" class="btn btn-success d-none d-lg-block md-15" href="/savePassagens/">Salvar</a>
+                                <button style="width:20%;text-align:center;margin-left:80%;" type="submit" class="btn btn-success d-none d-lg-block md-15" href="/savePassagens/">Salvar
+                                </button>
                             </div>
                         </form>
-
                         <!-- ============================================================== -->
                         <!-- To do chat and message -->
                         <!-- ============================================================== -->
-                    </div>
+                            <br>
+                            {% if messages %}
+                                    {% for message in messages %}
 
+                                        <div style="color:red;"  class="alert alert-danger">{{ message }}</div>
+                                    {% endfor %}
+                            {% endif %}
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -347,11 +370,7 @@
     <script src="../static/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../static/vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="../static/js/demo/chart-area-demo.js"></script>
-    <script src="../static/js/demo/chart-pie-demo.js"></script>
 
 </body>
 
