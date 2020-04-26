@@ -18,6 +18,7 @@ COPY . /app/
 #RUN pip install bootstrap-admin
 #install mysqlclient
 RUN pip install mysqlclient
+RUN pip install django-currentuser
 #RUN python manage.py makemigrations blog
 
 #RUN python manage.py migrate

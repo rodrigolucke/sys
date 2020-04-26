@@ -28,6 +28,13 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+MIDDLEWARE_CLASSES = (
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'currentuser.django_currentuser.middleware.ThreadLocalUserMiddleware',
+)
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,7 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
 ]
 
 MIDDLEWARE = [
@@ -70,7 +76,6 @@ TEMPLATES = [
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
-
             ],
         },
     },
