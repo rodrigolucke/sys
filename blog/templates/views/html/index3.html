@@ -227,7 +227,7 @@
                         <!-- ============================================================== -->
                         <!-- News -->
                         <!-- ============================================================== -->
-                      <form action="/savePassagens/" method="post">{% csrf_token %}
+                      <form action="/savePassagens/" id="savePassagens" method="post">{% csrf_token %}
                             <div class="row">
                                 <!-- column -->
                                 <div class="col-12">
@@ -236,28 +236,26 @@
                                             <div class="d-flex">
                                                 <div>
                                                     <div class="dropdown">
-                                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            Selecione a Empresa
-                                                        </button>
-
-                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                             {% for empresa in empresas %}
-                                                                 <button class="dropdown-item" name="empresa" type="button">{{ empresa }}</button>
-                                                             {% endfor %}
+                                                        <div class="dropdown">
+                                                             <select  class="btn btn-secondary dropdown-toggle" name="empresas" id="empresas" >
+                                                                    <option class="btn btn-secondary dropdown-toggle" value="0" >Selecione a Empresa</option>
+                                                                    {% for empresa in empresas %}
+                                                                        <option class="btn btn-secondary dropdown-toggle" value="{{ empresa.codigo }}" >{{ empresa }}</option>
+                                                                    {% endfor %}
+                                                            </select>
                                                         </div>
 
                                                     </div>
                                                 </div>
+
                                                 <div class="ml-auto">
                                                     <div class="dropdown">
-                                                        <option class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            Selecione o periodo
-                                                        </option>
-                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                             {% for periodo in periodos %}
-                                                                 <option name="periodo"  href="/index?periodo='{{ periodo.codigo }}'"> class="dropdown-item" type="button">{{ periodo }}</option>
-                                                             {% endfor %}
-                                                        </div>
+                                                         <select  class="btn btn-secondary dropdown-toggle" name="periodos" id="periodos">
+                                                              <option class="btn btn-secondary dropdown-toggle" value="0" >Selecione o Periodo </option>
+                                                                {% for periodo in periodos %}
+                                                                    <option class="btn btn-secondary dropdown-toggle" value="{{ periodo.codigo_mes }}" >{{ periodo }}</option>
+                                                                {% endfor %}
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -270,27 +268,43 @@
                                                             <th>Aluno</th>
                                                             <th>Serie</th>
                                                             <th>Turno</th>
-                                                            <th>Km Escola</th>
-                                                            <th>Trajeto</th>
-                                                            <th>Qnt Passagens</th>
+                                                            <th style="text-align: center">Detalhe Trajeto</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        {% for aluno in listaAlunos %}
+                                                            {% for item,values in listaAlunos %}
                                                             <tr>
-                                                                <td class="txt-oflo">{{aluno.nome}}</td>
-                                                                <td class="txt-oflo">{{aluno.serie_codigo}}</td>
-                                                                <td class="txt-oflo">{{aluno.turno_codigo}}</td>
-                                                                <td class="txt-oflo">{{aluno.trajeto_codigo.distancia}}</td>
-                                                                <td class="txt-oflo">{{aluno.trajeto_codigo}}</td>
-                                                                <input class="form-control" name="aluno_codigo" value="{{aluno.matricula}}" type="hidden">
-                                                                <input class="form-control" name="aluno_trajeto" value="{{aluno.trajeto_codigo.codigo}}" type="hidden">
+                                                                <td class="txt-oflo"> {{item.nome}}</td>
+                                                                <td class="txt-oflo">{{item.serie_codigo}}</td>
+                                                                <td class="txt-oflo">{{item.turno_codigo}}</td>
+                                                                <td class="txt-oflo">
+                                                                    <table class="table table-hover">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Trajeto</th>
+                                                                                <th>Distância</th>
+                                                                                <th>Qnt Passagens</th>
+                                                                             </tr>
+                                                                        </thead>
+                                                                          <tbody>
+                                                                                <input name="aluno_codigo_{{item.matricula}}" value="{{item.matricula}}" type="hidden">
+                                                                                <input name="lista_aluno_codigo" value="{{item.matricula}}" type="hidden">
+                                                                                {% for item2 in values %}
+                                                                                 <tr>
+                                                                                       <input name="trajeto_{{item.matricula}}" value="{{item2.trajeto_codigo.codigo}}" type="hidden">
+                                                                                       <input name="lista_aluno_trajeto" value="{{item2.trajeto_codigo.codigo}}" type="hidden">
+                                                                                       <td class="txt-oflo">{{item2.trajeto_codigo}}</td>
+                                                                                       <td class="txt-oflo">{{item2.trajeto_codigo.distancia}}</td>
 
-                                                                <td> <input class="form-control" name="num_passagens" placeholder="0"></td>
+                                                                                       <td> <input class="form-control"  name="num_passagens_{{item.matricula}}_{{item2.trajeto_codigo.codigo}}" placeholder="0"></td>
+                                                                                 </tr>
+                                                                                  {% endfor %}
+                                                                           </tbody>
+                                                                    </table>
+                                                                </td>
+
                                                             </tr>
                                                          {% endfor %}
-                                                        <input class="form-control" name="datames" value="1" type="hidden">
-                                                        <input class="form-control" name="empresa" value="1" type="hidden">
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -335,29 +349,6 @@
     </div>
     <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../static/vendor/jquery/jquery.min.js"></script>
@@ -373,5 +364,40 @@
 
 
 </body>
-
+<input class="form-control" id="empresaFiltradoRetorno" value="{{empresaFiltrado}}" type="hidden">
+<input class="form-control" id="periodoFiltradoRetorno" value="{{periodoFiltrado}}" type="hidden">
 </html>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // $("#empresas") = $("#empresaFiltradoRetorno");
+        //
+        //  $("#periodos") = $("#periodoFiltradoRetorno");
+        //$("#periodos") = $("#periodoFiltradoRetorno");
+        // $("#empresaFiltradoRetorno1").value = $("#empresaFiltradoRetorno").value
+        // $("#periodoFiltradoRetorno1").value = $("#periodoFiltradoRetorno").value
+        var empresaSelecionado =  $("#empresaFiltradoRetorno").val()
+        var periodoSelecionado =  $("#periodoFiltradoRetorno").val()
+        //alert(empresaSelecionado)
+        //alert(periodoSelecionado)
+        document.getElementById('empresas').getElementsByTagName('option')[empresaSelecionado].selected = 'selected'
+        document.getElementById('periodos').getElementsByTagName('option')[periodoSelecionado].selected = 'selected'
+
+        $('#empresas').on('change', function() {
+
+           //$( "#savePassagens" ).submit();
+            var empresas = $("#empresas").val();
+            var periodos = $("#periodos").val();
+            window.location.href = "/index?empresas=" + empresas + "&periodos=" + periodos;
+            //window.location.href = "/teste?empresas=" + empresas + "&periodos=" + periodos;
+        });
+        /*$('#periodos').on('change', function() {
+           //$( "#savePassagens" ).submit();
+            var empresas = $("#empresas").val();
+            var periodos = $("#periodos").val();
+            window.location.href = "/index?empresas=" + empresas + "&periodos=" + periodos;
+            //window.location.href = "/teste?empresas=" + empresas + "&periodos=" + periodos;
+        });*/
+
+
+    });
+</script>

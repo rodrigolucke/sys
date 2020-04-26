@@ -23,6 +23,7 @@ from .models import Trajeto
 from .models import Turno
 from .models import UsuarioEscola
 from .models import AlunoTrajeto
+from .models import EmpresaTrajeto
 
 #admin.site.register(Escola)
 @admin.register(Escola)
@@ -38,7 +39,7 @@ class EscolaAdmin(admin.ModelAdmin):
 @admin.register(Aluno)
 class AlunoAdmin(admin.ModelAdmin):
 
-    fields = ['nome', 'acompanhante', 'escola_codigo', 'trajeto_codigo', 'turno_codigo', 'serie_codigo']
+    fields = ['nome', 'acompanhante', 'escola_codigo', 'turno_codigo', 'serie_codigo']
 
     def save_model(self, request, obj, form, change):
             obj.criado_por_id = request.user.id
@@ -127,10 +128,19 @@ class UsuarioEscolaAdmin(admin.ModelAdmin):
 
 #admin.site.register(AlunoTrajeto)
 @admin.register(AlunoTrajeto)
-class UsuarioEscolaAdmin(admin.ModelAdmin):
+class AlunoTrajetoAdmin(admin.ModelAdmin):
 
-    fields = ['aluno_codigo', 'passagens','dt_mes', 'trajeto_codigo']
+    fields = ['aluno_codigo', 'trajeto_codigo']
 
     def save_model(self, request, obj, form, change):
             obj.criado_por_id = request.user.id
             super().save_model(request, obj, form, change)
+
+# admin.site.register(EmpresaTrajeto)
+@admin.register(EmpresaTrajeto)
+class UsuarioEscolaAdmin(admin.ModelAdmin):
+    fields = ['empresa_codigo', 'trajeto_codigo']
+
+    def save_model(self, request, obj, form, change):
+        obj.criado_por_id = request.user.id
+        super().save_model(request, obj, form, change)

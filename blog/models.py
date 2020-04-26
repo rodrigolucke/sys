@@ -19,9 +19,6 @@ class Empresa(models.Model):
     def __str__(self):
         return self.nome
 
-
-
-
 class Localidade(models.Model):
     codigo = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=255)
@@ -139,7 +136,7 @@ class Aluno(models.Model):
     acompanhante = models.CharField(max_length=255)
     escola_codigo = models.ForeignKey(Escola, on_delete=models.PROTECT)
     serie_codigo = models.ForeignKey(Serie, on_delete=models.PROTECT)
-    trajeto_codigo = models.ForeignKey(Trajeto, on_delete=models.PROTECT)
+    #trajeto_codigo = models.ForeignKey(Trajeto, on_delete=models.PROTECT)
     turno_codigo = models.ForeignKey(Turno, on_delete=models.PROTECT)
     #criado_por = CurrentUserField()
     criado_por = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -148,6 +145,8 @@ class Aluno(models.Model):
     '''def save(self, *args, **kwargs):
         self.criado_em = datetime.datetime.now().time()
         super(Aluno, self).save(*args, **kwargs)'''
+
+
 
     def __str__(self):
         return self.nome
@@ -159,13 +158,15 @@ class AlunoPeriodoEscola(models.Model):
 
 class AlunoTrajeto(models.Model):
     aluno_codigo = models.ForeignKey(Aluno, on_delete=models.PROTECT, default=1)
-    passagens = models.IntegerField()
-    dt_mes = models.ForeignKey(Periodo, on_delete=models.PROTECT)
+    passagens = models.IntegerField(null=True)
+    dt_mes = models.ForeignKey(Periodo, on_delete=models.PROTECT, null=True)
     trajeto_codigo = models.ForeignKey(Trajeto, on_delete=models.PROTECT)
 
     def __str__(self):
-        return self.passagens
+        return self.aluno_codigo.nome + " - " +  self.trajeto_codigo.cod_saida.nome + " - " + self.trajeto_codigo.cod_destino.nome
 
+    def __alunoTrajetoFilterEmpresa__(self, listaAlunoTrajeto):
+        return listaAlunoTrajeto.objects.filter(aluno_codigo=self.matricula)
 
 class UsuarioEscola(models.Model):
     codigo_usuario = models.ForeignKey(User, on_delete=models.PROTECT)
