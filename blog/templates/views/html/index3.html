@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SIGETESC</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../static/vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../static/css/sb-admin-2.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/index/">
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-bus-alt"></i>
+                    <!--  <img style="width:60px;" src="../static/img/logo2.jpg" alt="homepage" class="dark-logo" />-->
+                </div>
+                <div class="sidebar-brand-text mx-3">SIGETESC
+                </div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Gerenciamento
+            </div>
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/index/">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Passagens</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/blog/aluno/">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Alunos</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/blog/alunotrajeto/">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Trajetos Alunos</span>
+                </a>
+            </li>
+
+            {% if request.user.is_superuser %}
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+
+            <div class="sidebar-heading">
+                Administração
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/blog/empresa">
+                    <i class="fas fa-building"></i>
+                    <span>Empresas</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/blog/escola">
+                    <i class="fas fa-school"></i>
+                    <span>Escola</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/blog/localidade">
+                   <i class="fas fa-map-marker-alt"></i>
+                    <span>Localidades</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/blog/nivelensino">
+                    <i class="fas fa-list-ol"></i>
+                    <span>Nivel Ensino</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/blog/periodo">
+                    <i class="fas fa-stopwatch"></i>
+                    <span>Periodos</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/blog/serie">
+                   <i class="fas fa-award"></i>
+                    <span>Series</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/blog/trajeto">
+                   <i class="fas fa-road"></i>
+                    <span>Trajeto</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/blog/turno">
+                    <i class="fas fa-hourglass-half"></i>
+                    <span>Turnos</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/blog/usuarioescola">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Usuarios Escola</span>
+                </a>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Acessos
+            </div>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin">
+                    <i class="fas fa-key"></i>
+                    <span>Admin Geral</span>
+                </a>
+            </li>
+            {% endif %}
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div class="text-secondary" id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto container-fluid">
+
+                        <li class=" text-center col-10">
+                            {% if escolaSelecionada %}
+                                <h1>{{escolaSelecionada}}</h1>
+                            {% else %}
+                                <h1>Sem Escola Cadastrada/Selecionada</h1>
+                            {% endif %}
+                        </li>
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow col-2">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                {{ request.user.username }}
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/logout/">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="container-fluid">
+                        <!-- ============================================================== -->
+                        <!-- Bread crumb and right sidebar toggle -->
+                        <!-- ============================================================== -->
+                        <div class="nav-item row page-titles">
+                            <div class="col-md-5 align-self-center">
+                                <h4 style="color:white" class="nav-item">Passagens Alunos</h4>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- End Bread crumb and right sidebar toggle -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Yearly Sales -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- News -->
+                        <!-- ============================================================== -->
+                      <form action="/savePassagens/" id="savePassagens" method="post">{% csrf_token %}
+                            <div class="row">
+                                <!-- column -->
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex">
+                                                <div>
+                                                    <div class="dropdown">
+                                                        <div class="dropdown">
+                                                             <select  class="btn btn-secondary dropdown-toggle" name="empresas" id="empresas" >
+                                                                    <option class="btn btn-secondary dropdown-toggle" value="0" >Selecione a Empresa</option>
+                                                                    {% for empresa in empresas %}
+                                                                        <option class="btn btn-secondary dropdown-toggle" value="{{ empresa.codigo }}" >{{ empresa }}</option>
+                                                                    {% endfor %}
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="ml-auto">
+                                                    <div class="dropdown">
+                                                         <select  class="btn btn-secondary dropdown-toggle" name="periodos" id="periodos">
+                                                              <option class="btn btn-secondary dropdown-toggle" value="0" >Selecione o Periodo </option>
+                                                                {% for periodo in periodos %}
+                                                                    <option class="btn btn-secondary dropdown-toggle" value="{{ periodo.codigo_mes }}" >{{ periodo }}</option>
+                                                                {% endfor %}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Aluno</th>
+                                                            <th>Serie</th>
+                                                            <th>Turno</th>
+                                                            <th style="text-align: center">Detalhe Trajeto</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            {% for item,values in listaAlunos %}
+                                                            <tr>
+                                                                <td class="txt-oflo"> {{item.nome}}</td>
+                                                                <td class="txt-oflo">{{item.serie_codigo}}</td>
+                                                                <td class="txt-oflo">{{item.turno_codigo}}</td>
+                                                                <td class="txt-oflo">
+                                                                    <table class="table table-hover">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Trajeto</th>
+                                                                                <th>Distância</th>
+                                                                                <th>Qnt Passagens</th>
+                                                                             </tr>
+                                                                        </thead>
+                                                                          <tbody>
+                                                                                <input name="aluno_codigo_{{item.matricula}}" value="{{item.matricula}}" type="hidden">
+                                                                                <input name="lista_aluno_codigo" value="{{item.matricula}}" type="hidden">
+                                                                                {% for item2 in values %}
+                                                                                 <tr>
+                                                                                       <input name="trajeto_{{item.matricula}}" value="{{item2.trajeto_codigo.codigo}}" type="hidden">
+                                                                                       <input name="lista_aluno_trajeto" value="{{item2.trajeto_codigo.codigo}}" type="hidden">
+                                                                                       <td class="txt-oflo">{{item2.trajeto_codigo}}</td>
+                                                                                       <td class="txt-oflo">{{item2.trajeto_codigo.distancia}}</td>
+
+                                                                                       <td> <input class="form-control"  name="num_passagens_{{item.matricula}}_{{item2.trajeto_codigo.codigo}}" placeholder="0"></td>
+                                                                                 </tr>
+                                                                                  {% endfor %}
+                                                                           </tbody>
+                                                                    </table>
+                                                                </td>
+
+                                                            </tr>
+                                                         {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center m-t-30">
+                                <button style="width:20%;text-align:center;margin-left:80%;" type="submit" class="btn btn-success d-none d-lg-block md-15" href="/savePassagens/">Salvar
+                                </button>
+                            </div>
+                        </form>
+                        <!-- ============================================================== -->
+                        <!-- To do chat and message -->
+                        <!-- ============================================================== -->
+                            <br>
+                            {% if messages %}
+                                    {% for message in messages %}
+
+                                        <div style="color:red;"  class="alert alert-danger">{{ message }}</div>
+                                    {% endfor %}
+                            {% endif %}
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span> © 2019 Prefeitura Municipal de Rio Pardo</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../static/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+
+
+</body>
+<input class="form-control" id="empresaFiltradoRetorno" value="{{empresaFiltrado}}" type="hidden">
+<input class="form-control" id="periodoFiltradoRetorno" value="{{periodoFiltrado}}" type="hidden">
+</html>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // $("#empresas") = $("#empresaFiltradoRetorno");
+        //
+        //  $("#periodos") = $("#periodoFiltradoRetorno");
+        //$("#periodos") = $("#periodoFiltradoRetorno");
+        // $("#empresaFiltradoRetorno1").value = $("#empresaFiltradoRetorno").value
+        // $("#periodoFiltradoRetorno1").value = $("#periodoFiltradoRetorno").value
+        var empresaSelecionado =  $("#empresaFiltradoRetorno").val()
+        var periodoSelecionado =  $("#periodoFiltradoRetorno").val()
+        //alert(empresaSelecionado)
+        //alert(periodoSelecionado)
+        document.getElementById('empresas').getElementsByTagName('option')[empresaSelecionado].selected = 'selected'
+        document.getElementById('periodos').getElementsByTagName('option')[periodoSelecionado].selected = 'selected'
+
+        $('#empresas').on('change', function() {
+
+           //$( "#savePassagens" ).submit();
+            var empresas = $("#empresas").val();
+            var periodos = $("#periodos").val();
+            window.location.href = "/index?empresas=" + empresas + "&periodos=" + periodos;
+            //window.location.href = "/teste?empresas=" + empresas + "&periodos=" + periodos;
+        });
+        /*$('#periodos').on('change', function() {
+           //$( "#savePassagens" ).submit();
+            var empresas = $("#empresas").val();
+            var periodos = $("#periodos").val();
+            window.location.href = "/index?empresas=" + empresas + "&periodos=" + periodos;
+            //window.location.href = "/teste?empresas=" + empresas + "&periodos=" + periodos;
+        });*/
+
+
+    });
+</script>

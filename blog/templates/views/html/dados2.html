@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" />
+    <title>SIGETESC/DADOS</title>
+    <link rel="stylesheet" href="/static/estilo2.css">
+    <link rel="stylesheet" href="/static/estilo3.css">
+    <link rel="stylesheet" href="/static/estilo3.css">
+    <link href="../static/views/dist/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="areaTrabalho">
+        <div id="topo">
+            <div id="log"><img src="/static/img/logo2.jpg" width="80" height="80" alt="" /></div>
+            <div id="esc"><h2>{{escolaSelecionada}}</h2></div>
+            <div id="sai">
+                 <a class="btn btn-dark d-none d-lg-block m-l-15" href="/logout/">Sair</a>
+            </div>
+        </div>
+
+        <div class="menu2">
+            <ul>
+               <li class="itemMenuPrincipal">
+                  <p>
+                     <label for="empresas">Empresa:</label>
+                     <select class="comboBox" id="empresa">
+                          {% for empresa in empresas %}
+                               <option>{{ empresa }}</option>
+                          {% endfor %}
+                     </select>
+                  </p>
+               </li>
+               <li class="itemMenuPrincipal">
+                  <p>
+                     <label for="periodos">Periodo:</label>
+                     <select class="comboBox" id="periodo">
+                          {% for periodo in periodos %}
+                            <option>{{ periodo }}</option>
+                          {% endfor %}
+                     </select>
+                  </p>
+               </li>
+            </ul>
+         </div>
+
+         <div class="row">
+              <table class="blueTable">
+                  <thead>
+                     <tr>
+                        <th>Alunos</th>
+                        <th>Série</th>
+                        <th>Turno</th>
+                        <th>Km Escola</th>
+                        <th>Trajeto</th>
+                        <th>Qnt Passagens</th>
+                     </tr>
+                  </thead>
+                  <tfoot>
+                     <tr>
+                        <td colspan="6">
+                           <div class="links"><a href="#">&laquo;</a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">&raquo;</a></div>
+                        </td>
+                     </tr>
+                  </tfoot>
+                  <tbody>
+                        {% for aluno in listaAlunos %}
+                                <tr>
+                                    <td class="txt-oflo">{{aluno.nome}}</td>
+                                    <td class="txt-oflo">{{aluno.serie_codigo}}</td>
+                                    <td class="txt-oflo">{{aluno.turno_codigo}}</td>
+                                    <td class="txt-oflo">{{aluno.trajeto_codigo.distancia}}</td>
+                                    <td class="txt-oflo">{{aluno.trajeto_codigo}}</td>
+                                    <td><span class="text-success">24</span></td>
+                                </tr>
+                         {% endfor %}
+                  </tbody>
+               </table>
+            </div> 
+          </div> 
+        <div id="rodape">
+
+        </div>
+      </div>
+</body>

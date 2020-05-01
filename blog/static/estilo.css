@@ -1,0 +1,86 @@
+* {
+margin: 10;
+padding: 10;
+}
+
+body {
+	background-color: #28274B;
+}
+
+
+
+#topo{
+	 display: flex;
+     display: -webkit-flex;
+     justify-content: center;
+     align-items: center;
+    }
+	
+/*.logo{
+ height:200px;
+ width:100x;
+ background-image: url('C:\Users\Alice\Desktop\Sigetesc\logo.jpg');
+ background-size: 50px;
+ background-repeat: no-repeat;
+ float: left;
+ margin-left: 400px;
+}*/
+	
+	
+#meio{
+	
+	height: 270px;	
+	width: 100%;
+	color: #E6E6E6;
+	font-size: 12px;
+	font-family:calibri;
+	text-align:center;
+    margin-top:50px;
+}
+#rodape{	
+	font-size: 12pt;
+	font-family:calibri;
+	color: #E6E6E6;
+	text-align:center;
+}
+#linha1{
+	width:1080px;
+	background-color:#ffffff;
+	margin: autopx autopx autopx autopx;
+	border: 1px solid black;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	padding: 10px 10px 10px 10px;
+	text-align: center;
+}
+img#icone {
+	position: absolute;
+	left:15px;
+	top:15px;
+	width:5%;
+}
+.sair{
+	position: absolute;
+	float:right;
+	right:15px;
+	top:40px;
+	width:5%;
+	height:40px;	
+}
+#linha2coluna1{
+	width:1300px;
+	background-color:#ffffff;
+	margin: autopx autopx autopx autopx;
+	border: 1px solid black;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	padding: 10px 10px 10px 10px;
+	text-align: center;
+}	
+#linha2coluna2{
+	width:500px;
+	background-color:#ffffff;
+	margin: autopx autopx autopx autopx;
+	border: 1px solid black;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	padding: 10px 10px 10px 10px;
+	text-align: center;
+}	

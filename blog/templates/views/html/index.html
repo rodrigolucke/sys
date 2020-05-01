@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/img/bus.png">
+    <title>SIGETESC</title>
+    <!-- This page CSS -->
+    <!-- chartist CSS -->
+    <link href="../static/views/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+    <!--c3 plugins CSS -->
+    <link href="../static/views/assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../static/views/dist/css/style.css" rel="stylesheet">
+    <link href="../static/bootstrap/css/bootstrap.css" rel="stylesheet">
+<![endif]-->
+</head>
+
+<body class="skin-default-dark fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Elegant admin</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/index2/">
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img style="width:60px;" src="../static/img/logo2.jpg" alt="homepage" class="dark-logo" />
+                            <!-- Light Logo icon -->
+
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+                         <!-- dark Logo text -->
+                         <!-- Light Logo text -->
+                         <img src="../static/views/assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <div class="ml-auto p-2" >
+                         <a class="btn btn-dark d-none d-lg-block" href="/logout/">Sair</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <div class="d-flex no-block nav-text-box align-items-center">
+                <span><img style="width:60px;" src="../static/img/logo2.jpg" alt="elegant admin template"></span>
+                <a class="waves-effect waves-dark ml-auto hidden-sm-down" href="javascript:void(0)"><i class="ti-menu"></i></a>
+                <a class="nav-toggler waves-effect waves-dark ml-auto hidden-sm-up" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+            </div>
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+
+                        <li> <a class="waves-effect waves-dark" href="/index2/" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Passagens Alunos</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="/admin/blog/aluno/" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Alunos</span></a></li>
+
+                        <div class="text-center m-t-30">
+                            <a style="width:30%;text-align:center;margin-left: 30%;" class="btn btn-secondary d-none d-lg-block md-15" href="/logout/">Sair</a>
+                        </div>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="nav-item row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 style="color:white" class="nav-item">Passagens Alunos</h4>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Yearly Sales -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- News -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div>
+                                          <div class="dropdown">
+                                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Selecione a Empresa
+                                              </button>
+                                              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                <button class="dropdown-item" type="button">Empresa 1</button>
+                                                <button class="dropdown-item" type="button">Empresa 2</button>
+                                                <button class="dropdown-item" type="button">Empresa 3</button>
+                                              </div>
+                                          </div>
+                                    </div>
+                                    <div class="ml-auto">
+                                          <div class="dropdown">
+                                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Selecione o periodo
+                                              </button>
+                                              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                <button class="dropdown-item" type="button">Janeiro</button>
+                                                <button class="dropdown-item" type="button">Fevereiro</button>
+                                                <button class="dropdown-item" type="button">Março</button>
+                                              </div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">#</th>
+                                            <th>NAME</th>
+                                            <th>DATE</th>
+                                            <th>PRICE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td class="txt-oflo">Elite admin</td>
+                                            <td class="txt-oflo">April 18, 2017</td>
+                                            <td><span class="text-success">$24</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">2</td>
+                                            <td class="txt-oflo">Real Homes WP Theme</td>
+                                            <td class="txt-oflo">April 19, 2017</td>
+                                            <td><span class="text-info">$1250</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">3</td>
+                                            <td class="txt-oflo">Ample Admin</td>
+                                            <td class="txt-oflo">April 19, 2017</td>
+                                            <td><span class="text-info">$1250</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">4</td>
+                                            <td class="txt-oflo">Medical Pro WP Theme</td>
+                                            <td class="txt-oflo">April 20, 2017</td>
+                                            <td><span class="text-danger">-$24</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">5</td>
+                                            <td class="txt-oflo">Hosting press html</td>
+                                            <td class="txt-oflo">April 21, 2017</td>
+                                            <td><span class="text-success">$24</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">6</td>
+                                            <td class="txt-oflo">Digital Agency PSD</td>
+                                            <td class="txt-oflo">April 23, 2017</td>
+                                            <td><span class="text-danger">-$14</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">7</td>
+                                            <td class="txt-oflo">Helping Hands WP Theme</td>
+                                            <td class="txt-oflo">April 22, 2017</td>
+                                            <td><span class="text-success">$64</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">8</td>
+                                            <td class="txt-oflo">Helping Hands WP Theme</td>
+                                            <td class="txt-oflo">April 22, 2017</td>
+                                            <td><span class="text-success">$64</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">9</td>
+                                            <td class="txt-oflo">Ample Admin</td>
+                                            <td class="txt-oflo">April 19, 2017</td>
+                                            <td><span class="text-info">$1250</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- To do chat and message -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer">
+            © 2019 Prefeitura Municipal de Rio Pardo
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../static/views/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="../static/views/assets/node_modules/popper/popper.min.js"></script>
+    <script src="../static/views/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="../static/views/dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="../static/views/dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="../static/views/dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="../static/views/dist/js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!--morris JavaScript -->
+    <script src="../static/views/assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="../static/views/assets/node_modules/morrisjs/morris.min.js"></script>
+    <script src="../static/views/assets/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!--c3 JavaScript -->
+    <script src="../static/views/assets/node_modules/d3/d3.min.js"></script>
+    <script src="../static/views/assets/node_modules/c3-master/c3.min.js"></script>
+</body>
+
+</html>

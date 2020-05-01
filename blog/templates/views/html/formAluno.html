@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br" >
+<head>
+
+<title>Adicionar aluno | Site de administração do Django</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+
+
+<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=-LFK_LCh8Fi_tn53UPE1pe3w4Wj6EYZg8HEb8si6eFpuXWRKd7vAweRzLsO5sVTtAH043F_JBU614sJPJdI6mw" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cDovL2xvY2FsaG9zdDo4MDAwL2FkbWluL2Jsb2cvYWx1bm8vYWRkLw"/><script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+<script type="text/javascript" src="/static/admin/js/core.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="/static/admin/js/actions.js"></script>
+<script type="text/javascript" src="/static/admin/js/urlify.js"></script>
+<script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+    
+
+<meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+
+<body class=" app-blog model-aluno change-form"
+  data-admin-utc-offset="-10800">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="/index2/">SIGETESC</a></h1>
+
+        </div>
+        
+        
+        <div id="user-tools">
+            
+                Bem-vindo(a),
+                <strong>root</strong>.
+            
+            
+                
+                    <a href="/">Ver o site</a> /
+                
+                
+                    
+                    
+                
+                
+                <a href="/admin/password_change/">Alterar senha</a> /
+                
+                <a href="/admin/logout/">Encerrar sessão</a>
+            
+        </div>
+        
+        
+        
+    </div>
+    <!-- END Header -->
+    
+<div class="breadcrumbs">
+<a href="/index2/">Início</a>
+&rsaquo; <a href="/admin/blog/aluno/">Alunos</a>
+&rsaquo; Adicionar aluno
+</div>
+
+    
+
+    
+        
+    
+
+    <!-- Content -->
+    <div id="content" class="colM">
+        
+        <h1>Adicionar aluno</h1>
+        <div id="content-main">
+
+
+
+<form action="" method="post" id="aluno_form" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="mQ0rkqNxXYV9DJ7qXhRR9CeKBWlwDDqvfvvv7mZzRutaw0fIhLl2nkihFysxD964">
+<div>
+
+
+
+
+
+
+
+  <fieldset class="module aligned ">
+    
+    
+    
+        <div class="form-row field-matricula">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_matricula">Matricula:</label>
+                        
+                            <input type="number" name="matricula" value="0" class="vIntegerField" required id="id_matricula">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-nome">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_nome">Nome:</label>
+                        
+                            <input type="text" name="nome" class="vTextField" maxlength="255" required id="id_nome">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-acompanhante">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_acompanhante">Acompanhante:</label>
+                        
+                            <input type="text" name="acompanhante" class="vTextField" maxlength="255" required id="id_acompanhante">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-escola_codigo">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_escola_codigo">Escola codigo:</label>
+                        
+                            <div class="related-widget-wrapper">
+    <select name="escola_codigo" required id="id_escola_codigo">
+  <option value="" selected>---------</option>
+
+  <option value="1">Ernesto Alves de Oliveira</option>
+
+  <option value="2">Teste</option>
+
+  <option value="3">Goiás</option>
+
+</select>
+    
+        <a class="related-widget-wrapper-link change-related" id="change_id_escola_codigo"
+            data-href-template="/admin/blog/escola/__fk__/change/?_to_field=codigo&amp;_popup=1"
+            title="Alterar escola selecionado"><img src="/static/admin/img/icon-changelink.svg" alt="Modificar"></a><a class="related-widget-wrapper-link add-related" id="add_id_escola_codigo"
+            href="/admin/blog/escola/add/?_to_field=codigo&amp;_popup=1"
+            title="Adicionar outro escola"><img src="/static/admin/img/icon-addlink.svg" alt="Adicionar"></a><a class="related-widget-wrapper-link delete-related" id="delete_id_escola_codigo"
+            data-href-template="/admin/blog/escola/__fk__/delete/?_to_field=codigo&amp;_popup=1"
+            title="Excluir escola selecionado"><img src="/static/admin/img/icon-deletelink.svg" alt="Apagar"></a>
+    
+</div>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-serie_codigo">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_serie_codigo">Serie codigo:</label>
+                        
+                            <div class="related-widget-wrapper">
+    <select name="serie_codigo" required id="id_serie_codigo">
+  <option value="" selected>---------</option>
+
+  <option value="0">1</option>
+
+</select>
+    
+        <a class="related-widget-wrapper-link change-related" id="change_id_serie_codigo"
+            data-href-template="/admin/blog/serie/__fk__/change/?_to_field=codigo&amp;_popup=1"
+            title="Alterar serie selecionado"><img src="/static/admin/img/icon-changelink.svg" alt="Modificar"></a><a class="related-widget-wrapper-link add-related" id="add_id_serie_codigo"
+            href="/admin/blog/serie/add/?_to_field=codigo&amp;_popup=1"
+            title="Adicionar outro serie"><img src="/static/admin/img/icon-addlink.svg" alt="Adicionar"></a><a class="related-widget-wrapper-link delete-related" id="delete_id_serie_codigo"
+            data-href-template="/admin/blog/serie/__fk__/delete/?_to_field=codigo&amp;_popup=1"
+            title="Excluir serie selecionado"><img src="/static/admin/img/icon-deletelink.svg" alt="Apagar"></a>
+    
+</div>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-trajeto_codigo">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_trajeto_codigo">Trajeto codigo:</label>
+                        
+                            <div class="related-widget-wrapper">
+    <select name="trajeto_codigo" required id="id_trajeto_codigo">
+  <option value="" selected>---------</option>
+
+  <option value="1">Centro - Ramis</option>
+
+</select>
+    
+        <a class="related-widget-wrapper-link change-related" id="change_id_trajeto_codigo"
+            data-href-template="/admin/blog/trajeto/__fk__/change/?_to_field=codigo&amp;_popup=1"
+            title="Alterar trajeto selecionado"><img src="/static/admin/img/icon-changelink.svg" alt="Modificar"></a><a class="related-widget-wrapper-link add-related" id="add_id_trajeto_codigo"
+            href="/admin/blog/trajeto/add/?_to_field=codigo&amp;_popup=1"
+            title="Adicionar outro trajeto"><img src="/static/admin/img/icon-addlink.svg" alt="Adicionar"></a><a class="related-widget-wrapper-link delete-related" id="delete_id_trajeto_codigo"
+            data-href-template="/admin/blog/trajeto/__fk__/delete/?_to_field=codigo&amp;_popup=1"
+            title="Excluir trajeto selecionado"><img src="/static/admin/img/icon-deletelink.svg" alt="Apagar"></a>
+    
+</div>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-turno_codigo">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_turno_codigo">Turno codigo:</label>
+                        
+                            <div class="related-widget-wrapper">
+    <select name="turno_codigo" required id="id_turno_codigo">
+  <option value="" selected>---------</option>
+
+  <option value="1">manha</option>
+
+</select>
+    
+        <a class="related-widget-wrapper-link change-related" id="change_id_turno_codigo"
+            data-href-template="/admin/blog/turno/__fk__/change/?_to_field=codigo&amp;_popup=1"
+            title="Alterar turno selecionado"><img src="/static/admin/img/icon-changelink.svg" alt="Modificar"></a><a class="related-widget-wrapper-link add-related" id="add_id_turno_codigo"
+            href="/admin/blog/turno/add/?_to_field=codigo&amp;_popup=1"
+            title="Adicionar outro turno"><img src="/static/admin/img/icon-addlink.svg" alt="Adicionar"></a><a class="related-widget-wrapper-link delete-related" id="delete_id_turno_codigo"
+            data-href-template="/admin/blog/turno/__fk__/delete/?_to_field=codigo&amp;_popup=1"
+            title="Excluir turno selecionado"><img src="/static/admin/img/icon-deletelink.svg" alt="Apagar"></a>
+    
+</div>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-criado_por">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_criado_por">Criado por:</label>
+                        
+                            <div class="related-widget-wrapper">
+    <select name="criado_por" required id="id_criado_por">
+  <option value="" selected>---------</option>
+
+  <option value="3">lucke</option>
+
+  <option value="1">root</option>
+
+  <option value="2">teste</option>
+
+  <option value="4">teste2</option>
+
+</select>
+    
+        <a class="related-widget-wrapper-link change-related" id="change_id_criado_por"
+            data-href-template="/admin/auth/user/__fk__/change/?_to_field=id&amp;_popup=1"
+            title="Alterar usuário selecionado"><img src="/static/admin/img/icon-changelink.svg" alt="Modificar"></a><a class="related-widget-wrapper-link add-related" id="add_id_criado_por"
+            href="/admin/auth/user/add/?_to_field=id&amp;_popup=1"
+            title="Adicionar outro usuário"><img src="/static/admin/img/icon-addlink.svg" alt="Adicionar"></a><a class="related-widget-wrapper-link delete-related" id="delete_id_criado_por"
+            data-href-template="/admin/auth/user/__fk__/delete/?_to_field=id&amp;_popup=1"
+            title="Excluir usuário selecionado"><img src="/static/admin/img/icon-deletelink.svg" alt="Apagar"></a>
+    
+</div>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="submit-row">
+
+<input type="submit" value="Salvar" class="default" name="_save">
+
+
+<input type="submit" value="Salvar e adicionar outro(a)" name="_addanother">
+<input type="submit" value="Salvar e continuar editando" name="_continue">
+
+
+</div>
+
+
+
+    <script type="text/javascript"
+            id="django-admin-form-add-constants"
+            src="/static/admin/js/change_form.js"
+            
+                data-model-name="aluno"
+            >
+    </script>
+
+
+
+
+<script type="text/javascript"
+        id="django-admin-prepopulated-fields-constants"
+        src="/static/admin/js/prepopulate_init.js"
+        data-prepopulated-fields="[]">
+</script>
+
+
+</div>
+</form></div>
+
+        
+        <br class="clear">
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>
